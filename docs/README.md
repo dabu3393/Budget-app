@@ -19,6 +19,15 @@ Whether you want to stay within your grocery budget, track transportation costs,
 
 ---
 
+## **Structure**
+
+- /src        - Main codebase of the application.
+- /data       - Storage for mock or real transaction data.
+- /tests      - Contains all unit tests.
+- /docs       - Project documentation, user guides, and setup instructions.
+
+---
+
 ## **Features**
 
 - **Transaction Import**: Import your bank transactions from CSV or JSON files for easy data management.
