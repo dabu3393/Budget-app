@@ -1,0 +1,190 @@
+{
+  "accounts": [
+    {
+      "account_id": "acc_001",
+      "name": "Checking Account",
+      "official_name": "Primary Checking",
+      "type": "depository",
+      "subtype": "checking",
+      "balances": {
+        "available": 2500.00,
+        "current": 2600.00,
+        "iso_currency_code": "USD"
+      }
+    },
+    {
+      "account_id": "acc_002",
+      "name": "Savings Account",
+      "official_name": "High Yield Savings",
+      "type": "depository",
+      "subtype": "savings",
+      "balances": {
+        "available": 5000.00,
+        "current": 5000.00,
+        "iso_currency_code": "USD"
+      }
+    }
+  ],
+  "transactions": [
+    {
+      "transaction_id": "tx_001",
+      "date": "2023-09-01",
+      "amount": -55.75,
+      "merchant_name": "Walmart",
+      "category": ["Shops", "Groceries"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_002",
+      "date": "2023-09-02",
+      "amount": -1200.00,
+      "merchant_name": "Apartment Rent",
+      "category": ["Service", "Rent"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_003",
+      "date": "2023-09-03",
+      "amount": -25.50,
+      "merchant_name": "Spotify",
+      "category": ["Subscription", "Entertainment"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_004",
+      "date": "2023-09-03",
+      "amount": -75.00,
+      "merchant_name": "Gas Station",
+      "category": ["Transportation", "Gas"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_005",
+      "date": "2023-09-04",
+      "amount": 1500.00,
+      "merchant_name": "Paycheck",
+      "category": ["Income"],
+      "account_id": "acc_002"
+    },
+    {
+      "transaction_id": "tx_006",
+      "date": "2023-09-05",
+      "amount": -200.00,
+      "merchant_name": "Electric Bill",
+      "category": ["Utilities"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_007",
+      "date": "2023-09-06",
+      "amount": -60.00,
+      "merchant_name": "Internet Bill",
+      "category": ["Utilities"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_008",
+      "date": "2023-09-06",
+      "amount": -30.00,
+      "merchant_name": "Coffee Shop",
+      "category": ["Food and Drink"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_009",
+      "date": "2023-09-07",
+      "amount": -450.00,
+      "merchant_name": "Car Payment",
+      "category": ["Auto", "Loan"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_010",
+      "date": "2023-09-08",
+      "amount": -40.00,
+      "merchant_name": "Movie Theater",
+      "category": ["Entertainment"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_011",
+      "date": "2023-09-09",
+      "amount": -15.00,
+      "merchant_name": "Amazon",
+      "category": ["Shopping"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_012",
+      "date": "2023-09-10",
+      "amount": -350.00,
+      "merchant_name": "Health Insurance",
+      "category": ["Insurance"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_013",
+      "date": "2023-09-10",
+      "amount": -125.00,
+      "merchant_name": "Gym Membership",
+      "category": ["Fitness"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_014",
+      "date": "2023-09-11",
+      "amount": -85.25,
+      "merchant_name": "Whole Foods",
+      "category": ["Shops", "Groceries"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_015",
+      "date": "2023-09-12",
+      "amount": -100.00,
+      "merchant_name": "Italian Restaurant",
+      "category": ["Food and Drink"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_016",
+      "date": "2023-09-13",
+      "amount": 75.00,
+      "merchant_name": "Retail Store Refund",
+      "category": ["Refund"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_017",
+      "date": "2023-09-14",
+      "amount": -75.00,
+      "merchant_name": "Uber",
+      "category": ["Transportation"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_018",
+      "date": "2023-09-15",
+      "amount": -500.00,
+      "merchant_name": "Student Loan Payment",
+      "category": ["Loan"],
+      "account_id": "acc_001"
+    },
+    {
+      "transaction_id": "tx_019",
+      "date": "2023-09-15",
+      "amount": 2000.00,
+      "merchant_name": "Freelance Payment",
+      "category": ["Income"],
+      "account_id": "acc_002"
+    },
+    {
+      "transaction_id": "tx_020",
+      "date": "2023-09-16",
+      "amount": -25.00,
+      "merchant_name": "Netflix Subscription",
+      "category": ["Subscription", "Entertainment"],
+      "account_id": "acc_001"
+    }
+  ]
+}
