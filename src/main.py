@@ -1,8 +1,7 @@
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-import numpy as np
+
 
 # Class for handling Accounts
 class Account:
