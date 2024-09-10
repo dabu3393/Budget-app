@@ -30,8 +30,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/3__python__environment",
+    "git-widget-placeholder": "feature/6__implement__budget",
     "settings.editor.selected.configurable": "preferences.sourceCode"
   }
 }]]></component>

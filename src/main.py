@@ -32,3 +32,54 @@ print(transactions_df)
 # Optionally, you can save the data to CSV files if needed
 # accounts_df.to_csv('accounts.csv', index=False)
 # transactions_df.to_csv('transactions.csv', index=False)
+
+# -------------------------------------------------------------
+# Budget System Implementation
+# -------------------------------------------------------------
+
+# Define a sample budget for each category
+budget = {
+    "Groceries": 400,
+    "Rent": 1200,
+    "Entertainment": 200,
+    "Transportation": 150,
+    "Utilities": 300,
+    "Food and Drink": 150,
+    "Miscellaneous": 100,  # Default for uncategorized transactions
+    "Income": 0 # Budget for income is set to 0 by default
+}
+
+# Convert the budget dictionary to a DataFrame for easier manipulation
+budget_df = pd.DataFrame(list(budget.items()), columns=['category', 'budgeted_amount'])
+
+# A helper function to map transaction categories to the budget categories
+def map_transaction_to_budget_category(transaction_categories):
+    for category in transaction_categories:
+        if category in budget:
+            return category
+    return "Miscellaneous"  # If no match found, categorize as "Miscellaneous"
+
+# Apply the function to create a new 'budget_category' column in the transactions DataFrame
+transactions_df['budget_category'] = transactions_df['category'].apply(map_transaction_to_budget_category)
+
+# Group transactions by budget category and sum the amounts spent
+spending_df = transactions_df.groupby('budget_category')['amount'].sum().reset_index()
+
+spending_df.columns = ['category', 'spent_amount']
+
+# Merge the budget DataFrame with the spending DataFrame to compare budget vs spending
+budget_summary_df = pd.merge(budget_df, spending_df, on='category', how='left')
+
+# Replace NaN values in spent_amount with 0 (if no transactions occurred in that category)
+budget_summary_df['spent_amount'] = budget_summary_df['spent_amount'].fillna(0)
+
+
+# Calculate the remaining budget for each category
+budget_summary_df['remaining_budget'] = budget_summary_df['budgeted_amount'] + budget_summary_df['spent_amount']
+
+# Display the budget summary
+print("\nBudget Summary:")
+print(budget_summary_df)
+
+# Optionally, you can save the budget summary to a CSV file
+# budget_summary_df.to_csv('budget_summary.csv', index=False)
