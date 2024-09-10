@@ -1,44 +1,5 @@
-import json
 import pandas as pd
 import matplotlib.pyplot as plt
-
-
-# Class for handling Accounts
-class Account:
-    def __init__(self, account_data):
-        self.account_data = account_data
-        self.accounts_df = self.process_account_data()
-
-    def process_account_data(self):
-        accounts_df = pd.DataFrame(self.account_data)
-        balances_df = accounts_df.pop('balances').apply(pd.Series)  # Expand nested balances
-        return pd.concat([accounts_df, balances_df], axis=1)
-
-    def display_accounts(self):
-        print("Accounts DataFrame:")
-        print(self.accounts_df)
-
-
-# Class for handling Transactions
-class Transaction:
-    def __init__(self, transaction_data):
-        self.transaction_data = transaction_data
-        self.transactions_df = pd.DataFrame(transaction_data)
-
-    def map_transaction_to_budget_category(self, budget):
-        # Helper function to map transactions to budget categories
-        def mapper(transaction_categories):
-            for category in transaction_categories:
-                if category in budget:
-                    return category
-            return "Miscellaneous"  # Default category if no match found
-
-        self.transactions_df['budget_category'] = self.transactions_df['category'].apply(mapper)
-
-    def display_transactions(self):
-        print("\nTransactions DataFrame:")
-        print(self.transactions_df)
-
 
 class Budget:
     def __init__(self, budget_dict):
@@ -166,41 +127,3 @@ class Budget:
 
         # Show the chart
         plt.show()
-
-
-# -------------------------------------------------------------
-# Main Application Flow
-# -------------------------------------------------------------
-
-# Load the JSON data
-with open('../data/mock_data.json', 'r') as f:
-    data = json.load(f)
-
-# Initialize the Account and Transaction class
-transactions = Transaction(data['transactions'])
-
-# Define the budget
-budget_data = {
-    "Groceries": 400,
-    "Rent": 1200,
-    "Entertainment": 200,
-    "Transportation": 150,
-    "Utilities": 300,
-    "Food and Drink": 150,
-    "Miscellaneous": 100,
-    "Income": 0
-}
-
-# Initialize the Budget class and calculate remaining budget
-budget = Budget(budget_data)
-transactions.map_transaction_to_budget_category(budget.budget)  # Map transactions to budget categories
-budget.calculate_spending(transactions.transactions_df)
-budget.display_budget_summary()
-
-# Visualize budget data (Progress bars and Donut chart)
-# Now you can call the function for each category individually
-budget.plot_category_progress_bar('Groceries')  # Example for "Groceries"
-budget.plot_category_progress_bar('Miscellaneous')       # Example for "Rent"
-budget.plot_category_progress_bar('Entertainment')  # Example for "Entertainment"
-
-budget.plot_donut_chart_with_legend()
