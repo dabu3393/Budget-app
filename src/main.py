@@ -1,6 +1,7 @@
 # Imports
 import json  # To load JSON data
 import pandas as pd  # To create DataFrame
+import matplotlib.pyplot as plt  # For visualization
 
 # Load the JSON data from a file (replace 'file_path' with your actual file location)
 with open('../data/mock_data.json', 'r') as f:
@@ -83,3 +84,62 @@ print(budget_summary_df)
 
 # Optionally, you can save the budget summary to a CSV file
 # budget_summary_df.to_csv('budget_summary.csv', index=False)
+# -------------------------------------------------------------
+# Visualizations
+# -------------------------------------------------------------
+
+# Step 1: Bar Chart - Spending vs Budgeted Amount
+plt.figure(figsize=(10, 6))
+plt.bar(budget_summary_df['category'], budget_summary_df['budgeted_amount'], label='Budgeted Amount', alpha=0.6)
+plt.bar(budget_summary_df['category'], budget_summary_df['spent_amount'], label='Spent Amount', alpha=0.6)
+plt.xlabel('Category')
+plt.ylabel('Amount ($)')
+plt.title('Spending vs Budget by Category')
+plt.legend()
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Step 2: Pie Chart - Spending by Category
+plt.figure(figsize=(8, 8))
+plt.pie(budget_summary_df['spent_amount'], labels=budget_summary_df['category'], autopct='%1.1f%%', startangle=90)
+plt.title('Spending Distribution by Category')
+plt.tight_layout()
+plt.show()
+
+# Step 3: Bar Chart - Remaining Budget by Category
+plt.figure(figsize=(10, 6))
+plt.bar(budget_summary_df['category'], budget_summary_df['remaining_budget'], color='green')
+plt.xlabel('Category')
+plt.ylabel('Remaining Budget ($)')
+plt.title('Remaining Budget by Category')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# -------------------------------------------------------------
+# Data Summary - Total Spent and Remaining Budget
+# -------------------------------------------------------------
+
+# Calculate total spent and total remaining budget
+total_spent = budget_summary_df['spent_amount'].sum()
+total_remaining = budget_summary_df['remaining_budget'].sum()
+
+# Create a summary DataFrame
+summary_data = {
+    'Total Spent': [total_spent],
+    'Total Remaining': [total_remaining]
+}
+summary_df = pd.DataFrame(summary_data)
+
+# Display the summary table
+print("\nSummary of Spending:")
+print(summary_df)
+
+# Display the budget summary table with more details
+print("\nDetailed Budget Summary:")
+print(budget_summary_df)
+
+# Optionally, save the visualizations and summary data to files
+# budget_summary_df.to_csv('budget_summary.csv', index=False)
+# summary_df.to_csv('summary.csv', index=False)
