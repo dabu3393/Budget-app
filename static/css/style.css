@@ -1,0 +1,17 @@
+/* Restrict the chart size */
+#donutChart {
+    max-width: 600px; /* Maximum width for the chart */
+    max-height: 400px; /* Maximum height for the chart */
+    margin: 0 auto; /* Center the chart */
+}
+
+/* Center the progress bars container */
+.progress-container {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Progress bar colors */
+.bg-success { background-color: green; }
+.bg-warning { background-color: orange; }
+.bg-danger { background-color: red; }
